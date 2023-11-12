@@ -1,0 +1,432 @@
+/* Vacancies Tabs is vertical tabs with id #v-pills-tab */
+/* CV Form is horizontal tabs with id #pills-tab   */
+
+body {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #BFBFBF;
+    box-shadow: inset 0 0 6px #BFBFBF;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #BFBFBF;
+    outline: 1px solid #BFBFBF;
+}
+:root {
+    --main-color: #FE0000;
+}
+::-moz-selection {
+    color: white;
+    background: var(--main-color);
+}
+
+::selection {
+    color: white;
+    background: var(--main-color);
+}
+*:focus {
+    outline: none;
+}
+.main-container {
+    max-width: 1250px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+a:hover {
+    color: initial;
+}
+.main-title {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.button {
+    color: white;
+    padding: 15px 30px;
+    line-height: 1;
+    border-radius: 40px;
+    font-size: 15px;
+}
+.main-button {
+    border: 1px solid #FE0000;
+    background: #FE0000;
+}
+.secondary-button {
+    border: 1px solid #343a40;
+    background: #343a40;
+}
+.thirdinary-button {
+    border: 1px solid #FE0000;
+    background: white;
+    color: #FE0000;
+}
+.submit-button {
+    border: 1px solid #ebe938;
+    background: #ebe938;
+    color: black;
+}
+
+#session {
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: #322f35;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Spinner styles start */
+.spinner-container {
+    background: #e4e4e4;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10%;
+    flex-direction: column;
+    display: none;
+    opacity: 0;
+    transition: display 0s, opacity 0.5s;
+}
+.spinner-container p {
+    margin-top: 20px;
+    text-align: center;
+}
+.spinner-container.show {
+    display: flex;
+    opacity: 1;
+}
+/* Spinner styles end */
+
+/* Header sart */
+.header {
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+    background: white;
+}
+.navbar {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+.navbar-logo {
+    display: flex;
+}
+.navbar-logo__img {
+    height: 48px;
+}
+.navbar-toggler {
+    padding: 0;
+}
+.navbar-toggler .fa-bars {
+    color: var(--main-color);
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+.navbar-nav {
+    gap: 40px;
+    margin: 0 0 0 auto;
+}
+.navbar__link {
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+/* Header end */
+
+
+/* Footer start */
+.footer {
+    background: #f7f7f7;
+}
+.footer__inner {
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 50px;
+    align-items: flex-start;
+}
+.footer__block {
+    width: 33.3%;
+}
+.footer-contacts {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4d4d4d;
+}
+.footer-contacts__title {
+    color: #4d4d4d;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.footer-contacts__link {
+    color: #4d4d4d;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+    gap: 6px;
+}
+.footer-contacts__link:hover {
+    color: #4d4d4d;
+}
+.footer-contacts__image {
+    max-width: 120px;
+    width: 100%;
+}
+.footer__form-input,
+.footer__form-textarea {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 15px;
+    font-weight: 300;
+    width: 100%;
+    padding: 10px;
+    min-height: 40px;
+    margin-bottom: 10px;
+}
+.footer__form-button {
+    background-color: red;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    border: none;
+    line-height: 1;
+    padding: 13px 35px;
+    color: white;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+.footer__form-button:hover {
+    background: black;
+}
+.footer-socials__list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.footer-socials__icon {
+    color: #4d4d4d;
+    font-size: 24px;
+    padding: 12px;
+    transition: 0.3s;
+}
+.footer-socials__icon:hover {
+    color: red;
+    transform: scale(1.1);
+}
+.footer__copyright {
+    color: #4d4d4d;
+    font-size: 18px;
+    text-align: right;
+    font-weight: 300;
+}
+/* Footer end */
+
+
+/* Vacancies start */
+.vacancies {
+    margin-top: 40px;
+}
+.vacancies__inner {
+    flex-direction: column;
+}
+.vacancies-tab {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    background: #f7f7f7;
+}
+.vacancies-tab__pills-container {
+    width: 31%;
+}
+.vacancies-tab__pills {
+    width: 100%;
+    max-height: 62vh;
+    overflow: auto;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+.vacancies-tab__pills::-webkit-scrollbar {
+    width: 5px;
+}
+.vacancies-tab__pills::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px #BFBFBF;
+    box-shadow: inset 0 0 5px #BFBFBF;
+}
+.vacancies-tab__pills::-webkit-scrollbar-thumb {
+    background-color: #BFBFBF;
+    outline: 1px solid #BFBFBF;
+}
+.vacancies-tab__pills .nav-link {
+    background: white;
+    border-radius: 0;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    width: 100%;
+    color: black;
+}
+.vacancies-tab__pills .nav-link.active,
+.vacancies-tab__pills .nav-link.show {
+    color: white;
+    background: var(--main-color);
+}
+.vacancies-tab__vacancy-name {
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.vacancies-tab__vacancy-salary {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: grey;
+}
+.vacanciest-tab__vacancies-counter {
+    color: var(--main-color);
+    font-size: 14px;
+    margin-top: 12px;
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+.vacancies-tab__content {
+    width: 69%;
+    max-height: 62vh;
+    overflow: auto;
+    padding: 0 20px 20px 25px;
+}
+.vacancies-tab__content::-webkit-scrollbar {
+    width: 5px;
+}
+.vacancies-tab__content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px #F1F1F1;
+    box-shadow: inset 0 0 5px #BFBFBF;
+}
+.vacancies-tab__content::-webkit-scrollbar-thumb {
+    background-color: #BFBFBF;
+    outline: 1px solid #BFBFBF;
+}
+.vacancies-content__vacancy-name {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+}
+.vacancies-content__vacancy-salary {
+    font-size: 14px;
+    font-weight: 300;
+    color: grey;
+    margin: 0 0 20px;
+}
+.vacancies-content__vacancy-body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.vacancies-content__vacancy-body p b {
+    font-weight: 500;
+}
+.vacancies-tab__pills .nav-link.active .vacancies-tab__vacancy-salary,
+.vacancies-tab__pills .nav-link.show .vacancies-tab__vacancy-salary {
+    color: white;
+}
+.vacancies-content__button {
+    color: #33333382;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    background: white;
+    padding: 12px 15px;
+    line-height: 1;
+    border-radius: 20px;
+    border: 1px solid #33333382;
+    margin-left: auto;
+    display: flex;
+    transition: 0.3s;
+    width: max-content;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.vacancies-content__button:hover {
+    background: var(--main-color);
+    color: white;
+    border-color: var(--main-color);
+}
+/* Vacancies end */
+
+
+/* Mobile vacancies start */
+.mobile-vacancies {
+    display: none;
+    padding: 20px 0;
+}
+.accordion-button {
+    font-size: 15px;
+    padding: 0.7rem 15px;
+    line-height: 1.6;
+    gap: 5px;
+}
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #F7F8F9;
+}
+.accordion-button:focus {
+    border-color: rgba(0, 0, 0, .125);
+    box-shadow: none;
+}
+.accordion-button::after {
+    display: none;
+}
+.accordion-button span {
+    transition: transform 0.2s ease-in-out;
+    margin-left: auto;
+    color: #00000070;
+    font-size: 14px;
+}
+.accordion-button:not(.collapsed) span {
+    transform: rotate(180deg);
+    color: var(--main-color);
+}
+.accordion-body {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0.7rem 1.25rem;
+}
+.vacancies-accordion__collapse-salary {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.vacancies-accordion__collapse-body {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.vacancies-accordion__collapse-button {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    padding: 12px 20px;
+}
+/* Mobile vacancies end */

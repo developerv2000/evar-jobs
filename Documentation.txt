@@ -1,0 +1,36 @@
+Laravel Framework 8.73.2 (PHP v7.4.5)
+Timezone -> Asia/Dushanbe
+Font -> Roboto
+
+---Installed Plugins & Packages & etc---
+Font Awesome 5
+Bootstrap 5
+JQuery 3.5.1
+JQuery Form Styler 2.0.1  -> used to style selects, radiobuttons etc
+PhpWord -> used for downloading CVs in MWord format
+Simditor -> WYSIWIG
+Select2 -> as select and multiselect
+
+---Uploaded CVs Storage---
+Uploaded CVs are stored in private Storage folder
+-> Created new private disk (config/filesystems.php)
+-> path: storage/app/uploads/cvs
+
+---Routing---
+Added  ->   protected $namespace = 'App\Http\Controllers';    on RouteServiceProvider to support 
+old type of routing like ->   Route::get('/', 'HomeController@index')->name('home');
+
+---Authentication---
+used Laravel Breeze for authentication & all routes have been disabled except Login/Logout (/routes/auth.php)
+Changed authenticated user redirect constant at RouteServiceProvider -> public const HOME = '/dashboard';
+
+---View Composer---
+Some variables are stored in AppServiceProvider
+
+---Pagination---
+Used Bootstrap pagination instead of default Tailwind (tailwind.blade.php)
+For this added below code on AppServiceProvider:
+Paginator::useBootstrap();
+
+---Sending Email---
+Created new Feedback email (app/mail) & new view for template (views/email/template)
