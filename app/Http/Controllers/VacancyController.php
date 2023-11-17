@@ -19,13 +19,11 @@ class VacancyController extends Controller
         $active_page = $request->page;
         if (!$active_page) $active_page = 1;
 
-        $vacancies = Vacancy::orderBy($order_by, $order_type)
-            ->paginate(30, ["*"], "page", $active_page)
-            ->appends($request->except("page"));
+        $vacancies = Vacancy::orderBy($order_by, $order_type)->get();
 
         //used in search & counting
-        $all_items = Vacancy::orderBy("name", "asc")->get();
-        $items_count = count($all_items);
+        $all_items = $vacancies;
+        $items_count = $all_items->count();
 
         return view("dashboard.vacancies.index", compact("vacancies", "all_items", "items_count", "order_by", "order_type", "active_page"));
     }
@@ -43,7 +41,7 @@ class VacancyController extends Controller
         $vacancy->body = $request->body;
         $vacancy->save();
 
-        return redirect()->route('dashboard.vacancies.index'); 
+        return redirect()->route('dashboard.vacancies.index');
     }
 
     public function webmaster_single($id)

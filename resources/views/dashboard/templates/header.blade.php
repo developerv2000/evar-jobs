@@ -65,7 +65,7 @@
 
         @case('dashboard.uploads.index')
         <span class="header__actions-span">Загруженных анкет : {{$items_count}}</span>
-        <span class="header__actions-span">Новые анкеты : {{$uploads->where("new", true)->count()}}</span>
+        <span class="header__actions-span">Новые анкеты : {{$new_items}}</span>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

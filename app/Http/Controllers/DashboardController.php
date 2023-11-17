@@ -24,8 +24,8 @@ class DashboardController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Cv::orderBy("name", "asc")->get();
-        $items_count = count($all_items);
+        $all_items = Cv::orderBy("name", "asc")->select("id", "name", 'new')->get();
+        $items_count = $all_items->count();
 
         return view("dashboard.cvs.index", compact("cvs", "all_items", "items_count", "order_by", "order_type", "active_page"));
     }

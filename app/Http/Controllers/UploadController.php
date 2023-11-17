@@ -28,7 +28,7 @@ class UploadController extends Controller
                 $file = new Upload();
                 $file->name = "new";
                 $file->save();
-                //generate fileName 
+                //generate fileName
                 $date = \Carbon\Carbon::parse($file->created_at)->locale('ru');
                 $formatted = $date->isoFormat('DD-MM-YYYY');
                 $name = $file->id . ') ' . $formatted . '.' . $extension;
@@ -61,10 +61,10 @@ class UploadController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Upload::latest()->get();
-        $items_count = count($all_items);
+        $new_items = Upload::where('new', true)->count();
+        $items_count = Upload::count();
 
-        return view("dashboard.uploads.index", compact("uploads", "items_count", "order_by", "order_type", "active_page"));
+        return view("dashboard.uploads.index", compact("uploads", "items_count", "new_items", "order_by", "order_type", "active_page"));
     }
 
 
@@ -73,7 +73,7 @@ class UploadController extends Controller
         $upload = Upload::find(request('id'));
         $upload->new = false;
         $upload->save();
-  
+
         return response()->download(storage_path('app/uploads/cvs/' . $upload->name));
     }
 

@@ -98,8 +98,6 @@
         </div> {{-- List Item start --}}
         @endforeach
     </form> {{-- Multiple Items form end --}}
-
-    {{$vacancies->links()}}
 </section> {{-- Main list end --}}
 
 
