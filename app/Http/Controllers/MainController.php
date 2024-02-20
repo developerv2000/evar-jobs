@@ -7,6 +7,7 @@ use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Feedback;
+use Illuminate\Support\Facades\Http;
 
 class MainController extends Controller
 {
@@ -24,8 +25,23 @@ class MainController extends Controller
 
     public function feedback(Request $request)
     {
-        Mail::to('info@evar.tj')->send(new Feedback($request));
+        $recaptchaResponse = $request->input('g-recaptcha-response');
+        $recaptchaSecret = env('RECAPTCHA_SECRET_KEY');
+        $remoteIp = $request->ip();
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => $recaptchaSecret,
+            'response' => $recaptchaResponse,
+            'remoteip' => $remoteIp,
+        ]);
+
+        $responseData = $response->json();
+
+        if ($responseData['success'] && $responseData['score'] >= 0.5) {
+            Mail::to('info@evar.tj')->send(new Feedback($request));
+        }
 
         return redirect()->back();
     }
 }
+  

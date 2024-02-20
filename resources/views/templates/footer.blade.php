@@ -14,12 +14,13 @@
         </div>
 
         <div class="footer__block footer-form">
-            <form action="{{ route('feedback') }}" method="POST">
+            <form id="feedback-form" action="{{ route('feedback') }}" method="POST">
                 {{ csrf_field() }}
                 <input class="footer__form-input" type="text" name="name" placeholder="Имя" />
                 <input class="footer__form-input" type="text" name="email" placeholder="Почта*" type="email" required/>
                 <textarea class="footer__form-textarea" rows="4" name="text" placeholder="Текст*" required></textarea>
-                <button class="footer__form-button" type="submit">Отправить</button>
+
+                <button class="g-recaptcha footer__form-button" type="submit" data-sitekey="6LeTtHcpAAAAANDcYSO5J8Kbpd6tYjERQ4-vocAG" data-callback='onRecaptchaSubmit' data-action='submit'>Отправить</button>
              </form>
         </div>
 
